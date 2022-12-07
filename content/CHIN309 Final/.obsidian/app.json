@@ -2,7 +2,7 @@
   "legacyEditor": false,
   "livePreview": true,
   "alwaysUpdateLinks": true,
-  "strictLineBreaks": false,
+  "strictLineBreaks": true,
   "showFrontmatter": true,
   "fileSortOrder": "alphabetical",
   "pdfExportSettings": {
