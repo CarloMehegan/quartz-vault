@@ -1,0 +1,74 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="tags: #notes #fleeting creation date: [[2022-09-23 Friday]] 10:58:30 description:: induction proof examples, starting Sets
+today doing more induction proof examples and then moving into set theory"><title>🪴 Quartz 3.3</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=https://carlomehegan.github.io/quartz-vault//icon.png><link href=https://carlomehegan.github.io/quartz-vault/styles.706bb6073ba85d26809f9096dae23a6b.min.css rel=stylesheet><link href=https://carlomehegan.github.io/quartz-vault/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=https://carlomehegan.github.io/quartz-vault/js/darkmode.d3b63235d6779582e069a9e8e0f62a2e.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/util.5e39932758f9ecaf45fd54506ed61416.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
+<script src=https://unpkg.com/@floating-ui/core@0.7.3></script>
+<script src=https://unpkg.com/@floating-ui/dom@0.5.4></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/popover.6da9b273c092cc16fc1aa904d71a2163.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
+<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="https://carlomehegan.github.io/quartz-vault/",fetchData=Promise.all([fetch("https://carlomehegan.github.io/quartz-vault/indices/linkIndex.0a3d211a6a91ce0bac4637f3dbf41d58.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://carlomehegan.github.io/quartz-vault/indices/contentIndex.079bd76a3aa9a07d0c43f9984abf6db9.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("https://carlomehegan.github.io/quartz-vault",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("https://carlomehegan.github.io/quartz-vault",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+    import { attachSPARouting } from "https:\/\/carlomehegan.github.io\/quartz-vault\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-XYFD95KB4J"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XYFD95KB4J",{anonymize_ip:!1})}</script><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=https://carlomehegan.github.io/quartz-vault/js/full-text-search.51f0b1753e9b30839d053f8a98cc20d1.min.js></script><div class=singlePage><header><h1 id=page-title><a href=https://carlomehegan.github.io/quartz-vault/>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><p class=meta>Last updated
+Dec 6, 2022
+<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/School%20Vault/Fleeting%20Notes/2022-09-23%20CSCI243.md rel=noopener>Edit Source</a></p><ul class=tags></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#induction-proof-examples>Induction proof examples</a><ol><li></li></ol></li><li><a href=#set-theory>Set Theory</a><ol><li></li></ol></li></ol></nav></details></aside><p>tags: #notes #fleeting
+creation date: <a class="internal-link broken">2022-09-23 Friday</a> 10:58:30
+description:: induction proof examples, starting Sets</p><p>today doing more induction proof examples and then moving into set theory</p><a href=#induction-proof-examples><h2 id=induction-proof-examples><span class=hanchor arialabel=Anchor># </span>Induction proof examples</h2></a><a href=#game-of-hats><h5 id=game-of-hats><span class=hanchor arialabel=Anchor># </span>Game of Hats</h5></a><ol><li>Room of $m$ people, all are wearing a hat</li><li>Each wears a blue or a red hat</li><li>Everyone can see each others hat but can&rsquo;t see their own</li><li>The number of blue hats is $n \geq 1$</li><li>Every step (1 minute or something) a bell rings and everyone who knows the color of their hat (from logical deduction) must call it out loud. No other exchange is allowed</li></ol><p>Prove that all those with blue hats will call it at exactly the $n$th call (aka before $n$th ring , no one has said anything, until on the $n$th all blue hats call it)</p><p>Where do we start with this?
+What variable do we induct on?
+$n$, because it doesn&rsquo;t matter how many ppl are in the room</p><p>Induction on $n$ (number of blue hats)
+Base case
+(always start on the smallest $n$ you can use)
+$n = 1$
+this means there is one person with a blue hat, everyone else has a red hat
+the person wearing a blue hat only sees red hats, so they must be wearing a blue hat
+the people wearing red hats see one blue hat, so either they are wearing a red hat (total 1 b hat) or they are also wearing a blue hat (total 2 b hats)
+<a class="internal-link broken">Pasted image 20220923111445.png</a>
+at the first call, the b hat will call it ✔️
+Inductive Hypothesis
+Assume always true for $n$ is equal to some $k$
+ie, Assume true for $k$ blue hats
+ie, if there are $k$ blue hats, all with blue hats will call it at $k$th step
+Inductive Step
+Will prove for $k+1$ blue hats, they will all call it after $k+1$ steps.
+guys with red hats, think there are either $k+1$ or $k+2$ blue hats
+guys with blue hats, think there are either $k$ or $k+1$ blue hats
+they can eliminate one of these possibilities
+by IH, if there were $k$ blue hats, it would have been called at the $k$th step. so, after the $k$th step, if no one has called it, then there must be $k+1$ blue hats.
+his wording:
+From the IH, there cannot be $k$ blue hats because those with blue hats would have called it at the $k$th step.
+Since they didn&rsquo;t, the $k+1$ option is the only remaining choice.
+And all blue hat guys call it.</p><p>Will red hats ever call it first?
+the people with the red hats are playing the same game if $m-n \geq 1$
+they would just call it at the $m-n$ th step
+the game stops after $min(n, m-n)$
+so if there are more red hats than blue, then red will call it</p><p>Why does $n$ have to be greater than or equal to 1?
+Base case
+if $n$ is allowed to be zero
+$n$ = 0, see only red hats
+so, there are either 0 or 1 blue hats
+they cannot eliminate either of these choices, so not possible</p><p>What if there are the same number of blue and red hats?
+everyone will call it at the same time</p><p>What if there is one red hat and everyone else is blue?
+red hat person calls it at the first step
+wait that doesnt make sense we didnt say $m \geq 1$ how do we know
+whatever blues will call it at nth step still</p><p>moving on to new topic</p><a href=#set-theory><h2 id=set-theory><span class=hanchor arialabel=Anchor># </span>Set Theory</h2></a><a href=#sets><h5 id=sets><span class=hanchor arialabel=Anchor># </span>Sets</h5></a><p>A <strong>set</strong> is an <strong>unordered</strong> collection of <strong>elements</strong>.</p><p>Unordered
+The set of 1 and 2 is the same as the set of 2 and 1</p><p>$x \in Y$ means element $x$ belongs in set $Y$
+Usually use lowercase letters for elements and uppercase for sets</p><p>Can a set belong in a set?
+Yes; supersets</p><p>Does a set belong to itself?
+its about to get so annoying</p><a href=#paradoxes><h5 id=paradoxes><span class=hanchor arialabel=Anchor># </span>Paradoxes</h5></a><p>ex. Barber&rsquo;s Paradox
+the barber shaves all men who do not shave themselves and only men who do not shave themselves.
+who shaves the barber?
+blah blah
+he does not shave himself $\rightarrow$ he is shaved by the barber $\rightarrow$ he shaves himself $\rightarrow$ he is not a barber by definition $\rightarrow$ yeah etc</p><a href=#russels-paradox><h5 id=russels-paradox><span class=hanchor arialabel=Anchor># </span>Russel&rsquo;s paradox</h5></a><p>$Y = {x | x \notin x}$
+$Y \in Y \leftrightarrow Y \notin Y$</p><a href=#basic-definitions-for-sets><h5 id=basic-definitions-for-sets><span class=hanchor arialabel=Anchor># </span>Basic definitions for sets</h5></a><p>$S = {1, 2, 3}$
+$Y = {&lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;}$
+$S \neq Y$</p><p>Special sets
+$\N$ (set of natural numbers), Z (set of integers), Q (set of rational numbers), R (set of real numbers). Superscript or subscript + is used for positive numbers. Superscript ∗ means the set does not include the zero.</p><p>Empty set
+denoted by $\emptyset$ or ${ }$
+Note that $\emptyset \neq { \emptyset }$</p></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=https://carlomehegan.github.io/quartz-vault/js/graph.abd4bc2af3869a96524d7d23b76152c7.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2022</p><ul><li><a href=https://carlomehegan.github.io/quartz-vault/>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>Github</a></li></ul></footer></div></div></body></html>

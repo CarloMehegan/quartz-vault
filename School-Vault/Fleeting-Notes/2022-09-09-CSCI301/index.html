@@ -1,0 +1,316 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="tags: #notes #fleeting creation date: [[2022-09-09 Friday]] 15:00:11 description:: learning java, asynch
+doing the lecture notes now module 1, lesson 4 a,b,c, and d"><title>🪴 Quartz 3.3</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=https://carlomehegan.github.io/quartz-vault//icon.png><link href=https://carlomehegan.github.io/quartz-vault/styles.706bb6073ba85d26809f9096dae23a6b.min.css rel=stylesheet><link href=https://carlomehegan.github.io/quartz-vault/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=https://carlomehegan.github.io/quartz-vault/js/darkmode.d3b63235d6779582e069a9e8e0f62a2e.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/util.5e39932758f9ecaf45fd54506ed61416.min.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
+<script src=https://unpkg.com/@floating-ui/core@0.7.3></script>
+<script src=https://unpkg.com/@floating-ui/dom@0.5.4></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/popover.6da9b273c092cc16fc1aa904d71a2163.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/code-title.b35124ad8db0ba37162b886afb711cbc.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/clipboard.c20857734e53a3fb733b7443879efa61.min.js></script>
+<script src=https://carlomehegan.github.io/quartz-vault/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
+<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="https://carlomehegan.github.io/quartz-vault/",fetchData=Promise.all([fetch("https://carlomehegan.github.io/quartz-vault/indices/linkIndex.0a3d211a6a91ce0bac4637f3dbf41d58.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("https://carlomehegan.github.io/quartz-vault/indices/contentIndex.079bd76a3aa9a07d0c43f9984abf6db9.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("https://carlomehegan.github.io/quartz-vault",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("https://carlomehegan.github.io/quartz-vault",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+    import { attachSPARouting } from "https:\/\/carlomehegan.github.io\/quartz-vault\/js\/router.9d4974281069e9ebb189f642ae1e3ca2.min.js"
+    attachSPARouting(init, render)
+  </script></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-XYFD95KB4J"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XYFD95KB4J",{anonymize_ip:!1})}</script><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=https://carlomehegan.github.io/quartz-vault/js/full-text-search.51f0b1753e9b30839d053f8a98cc20d1.min.js></script><div class=singlePage><header><h1 id=page-title><a href=https://carlomehegan.github.io/quartz-vault/>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><p class=meta>Last updated
+Dec 6, 2022
+<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/School%20Vault/Fleeting%20Notes/2022-09-09%20CSCI301.md rel=noopener>Edit Source</a></p><ul class=tags></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#4a-java-program-execution>4a. Java Program Execution</a></li><li><a href=#4b-java-control-flow>4b. Java Control Flow</a><ol><li></li></ol></li><li><a href=#4c-structure-of-java-programs>4c. Structure of Java Programs</a><ol><li></li></ol></li><li><a href=#4d-primitive-types-in-java>4d. Primitive Types in Java</a><ol><li></li></ol></li></ol></nav></details></aside><p>tags: #notes #fleeting
+creation date: <a class="internal-link broken">2022-09-09 Friday</a> 15:00:11
+description:: learning java, asynch</p><p>doing the lecture notes now
+module 1, lesson 4 a,b,c, and d</p><a href=#4a-java-program-execution><h2 id=4a-java-program-execution><span class=hanchor arialabel=Anchor># </span>4a. Java Program Execution</h2></a><p>a brief introduction to Java program execution and life cycle</p><p>to do list</p><ul><li>program execution, life cycle</li><li>control flow</li><li>fundamental data structures</li><li>structure of large programs</li><li>user interaction</li><li>persistent storage</li><li>special topics<ul><li>concurrent execution</li><li>distributed / network applications</li><li>regular execution, error handling</li></ul></li></ul><p>from source code to a running program</p><ul><li>source code<ul><li>what we produce, human readable language</li><li>.java</li></ul></li><li>.class files<ul><li>not human readable</li><li>intended input for java version machine</li></ul></li><li>interpreter / virtual machine<ul><li>machine specific</li><li>java version machine aka java VM</li><li>turns the .class files into code that runs on the specific platform</li><li>virtual machine provides an environment to interpret code</li></ul></li></ul><p>example: hellow world / red button
+javac</p><ul><li>command for invoking the compiler</li><li>c for compiler</li></ul><p>from code to execution</p><ul><li>step 1: javac MyProgram.java<ul><li>compiles source code to byte code</li></ul></li><li>step 2: java MyProgram<ul><li>starts JVM, loads and runs byte code from .class files</li><li>classes and libraries are usually packaged ,jar archive files</li></ul></li></ul><p>JVM</p><ul><li>loads class files on demand</li><li>starts execution</li><li>executed commands in main method<ul><li>may start additional, parallel threads</li></ul></li><li>terminates if done with main method and all other threads</li><li>internally<ul><li>operates execution <a class="internal-link broken">Stack</a> for methods and <a class="internal-link broken">Heap</a> for objects</li><li>performs garbage collection on heap to recycle memory<ul><li>no references to object = not being used = can be thrown out</li></ul></li><li><input disabled type=checkbox> make data structures topic notes</li></ul></li></ul><p>Operating system</p><ul><li>runs JVM in a user process with own virtual address space</li><li>provides memory</li><li>provides access to devices for input/output e.g. keyboard, screen, etc</li></ul><p>Whats next?</p><ul><li>look at RedButtonGUI.java for heavily annotated code to provide a brief introduction into Java programming</li></ul><a href=#4b-java-control-flow><h2 id=4b-java-control-flow><span class=hanchor arialabel=Anchor># </span>4b. Java Control Flow</h2></a><p>The notion of sequence is fundamental</p><ul><li>at a conceptual level, hardwar executes low level basic instructions in sequence</li><li>a program is transformed into a sequence of instructions for its execution</li><li>each instruction is an indivicual, discrete entity</li></ul><p>in Java</p><ul><li>semicolon - denotes end of command, separates commands</li><li>curly braces - group a set of commands into a block</li><li>text layout <strong>does not</strong> matter for Java compiler (but does for humans)</li></ul><p>caveats</p><ul><li>missing/extra semicolons ruin everything</li></ul><a href=#methods><h5 id=methods><span class=hanchor arialabel=Anchor># </span>methods</h5></a><ul><li>a function</li><li>a block of code inside a class with:<ul><li>a name</li><li>a return type including void</li><li>parameters</li><li>local variables</li><li>commands</li></ul></li></ul><p>input/output
+how does data get into a method?</p><ul><li>parameters, like local variables with external initialization</li><li>fields, access to instance variables is shared among methods of an object
+how do results get out of a method?</li><li>return type</li><li>parameters, if they are references</li><li>fields</li></ul><a href=#if-then-else><h5 id=if-then-else><span class=hanchor arialabel=Anchor># </span>if then else</h5></a><p>data dependent decisions
+conditional execution</p><a href=#switch-statement><h5 id=switch-statement><span class=hanchor arialabel=Anchor># </span>switch statement</h5></a><p>useful if 1 general default case, n special cases</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=k>switch</span><span class=o>(</span><span class=n>variable</span><span class=o>),</span> <span class=o>{...}</span>
+</span></span></code></pre></td></tr></table></div></div><p>case by case enumerated as case x : &mldr; break ;
+multiple cases with same effect can share code
+works with a variety of variable types</p><ul><li>byte char short int primitive types</li><li>Byte Character Short Integer wrapper classes</li><li>Enum enumerated types</li><li>Strings (since SE 7)</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>switch</span><span class=o>(</span><span class=n>args</span><span class=o>.</span><span class=na>length</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=n>0</span> <span class=o>:</span> <span class=n>printErrorMsg</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>		<span class=k>break</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=n>1</span><span class=o>:</span> <span class=k>case</span> <span class=n>2</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>		<span class=n>print</span> <span class=nf>Arguments</span><span class=o>(</span><span class=n>args</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=k>break</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>default</span><span class=o>:</span> <span class=n>printArguments</span><span class=o>(</span><span class=n>args</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=k>break</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#loops><h5 id=loops><span class=hanchor arialabel=Anchor># </span>loops</h5></a><p>allows for repeated execution of code block
+loop requires</p><ul><li>termination criterion</li><li>notion of progress
+3 equivalent variants</li><li>for loop</li><li>while koop</li><li>do-while loop</li></ul><p>caveats</p><ul><li>for loop condition directly followed by ;<ul><li>typo error tricky to spot</li></ul></li><li>progress variable does not proceed towards termination - infinite loop</li><li>nested loops with mingled notions of progress</li></ul><p>for loop java example</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kt>void</span> <span class=nf>printArguments</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>args</span><span class=o>.</span><span class=na>length</span><span class=o>;</span> <span class=n>i</span><span class=o>++)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>String</span> <span class=n>str</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=s>&#34;-th parameter: &#34;</span> <span class=o>+</span> <span class=n>args</span> <span class=o>[</span><span class=n>i</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>		<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>str</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kt>void</span> <span class=nf>printArguments</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=o>(</span><span class=n>String</span> <span class=n>s</span> <span class=o>:</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>String</span> <span class=n>str</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=s>&#34;-th parameter: &#34;</span> <span class=o>+</span> <span class=n>s</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>str</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=n>i</span><span class=o>++;</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>while loop java example</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kt>void</span> <span class=nf>printArguments</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>while</span> <span class=o>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=n>args</span><span class=o>.</span><span class=na>length</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>String</span> <span class=n>str</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=s>&#34;-th parameter: &#34;</span> <span class=o>+</span> <span class=n>s</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>str</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=n>i</span><span class=o>++;</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>do while loop java example
+why use this?
+&ldquo;does the code once for sure, then can go back and do it again if necessary&rdquo;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kt>void</span> <span class=nf>printArguments</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>do</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>String</span> <span class=n>str</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=s>&#34;-th parameter: &#34;</span> <span class=o>+</span> <span class=n>args</span><span class=o>[</span><span class=n>i</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>		<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>str</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=n>i</span><span class=o>++;</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span> <span class=k>while</span> <span class=o>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=n>args</span><span class=o>.</span><span class=na>length</span><span class=o>);</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#basic-exception-handling><h5 id=basic-exception-handling><span class=hanchor arialabel=Anchor># </span>Basic Exception Handling</h5></a><p>what if execution hits an error situation?
+control flow for normal vs exceptional situations?
+java separates code for execution handling</p><p>key idea: &ldquo;passing a hot potato along&rdquo;</p><ul><li>method that hits a problem it cant handle returns by throwing an exception, ie control flow switches toward exception handling</li><li>calling method can either &ldquo;catch&rdquo; and handle exception or pass it on</li><li>working down the execution stack, this ultimately leads to a program termination with a failure message.</li></ul><p>ex. NullPointerException</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=n>String</span> <span class=n>name</span> <span class=o>=</span> <span class=kc>null</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>name</span><span class=o>.</span><span class=na>length</span><span class=o>();</span> <span class=o>&lt;-</span> <span class=n>ERROR</span>
+</span></span><span class=line><span class=cl><span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=n>Exception</span> <span class=n>in</span> <span class=n>thread</span> <span class=s>&#34;main&#34;</span> <span class=n>java</span><span class=o>.</span><span class=na>lang</span><span class=o>.</span><span class=na>NullPointerException</span>
+</span></span><span class=line><span class=cl><span class=n>at</span> <span class=n>Greeter</span><span class=o>.</span><span class=na>sayHello</span><span class=o>(</span><span class=n>Greeter</span><span class=o>.</span><span class=na>java</span><span class=o>:</span><span class=n>25</span><span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=n>at</span> <span class=n>GreeterTest</span><span class=o>.</span><span class=na>main</span><span class=o>(</span><span class=n>GreeterTest</span><span class=o>.</span><span class=na>Java</span><span class=o>:</span><span class=n>6</span><span class=o>)</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>if a variable does not refer to an object its value is null</li><li>calling method on null value is not possible</li><li>common programming error</li><li>unless there is a handler, program exits with stack trace</li></ul><p>catching exceptions</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=k>try</span>
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//code that might throw an IOException
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=k>catch</span>
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//take corrective action
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>corrective action can be</p><ul><li>notify user of error and open dialog with selection of remedies</li><li>log error in error report file</li><li>common but unsatisfactory: print stack trace and exit</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=n>exception</span><span class=o>.</span><span class=na>printStackTrace</span><span class=o>();</span>
+</span></span><span class=line><span class=cl><span class=n>System</span><span class=o>.</span><span class=na>exit</span><span class=o>(</span><span class=n>1</span><span class=o>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>lame ^</p><p>The finally Clause</p><ul><li>cleanup needs to occur during normal and exceptional processing</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=k>try</span>
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>reader</span> <span class=o>=</span> <span class=k>new</span> <span class=n>FileReader</span><span class=o>(</span><span class=n>name</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	<span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=c1>//can add a catch block here too
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>finally</span>
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=o>(</span><span class=n>reader</span> <span class=o>!=</span> <span class=kc>null</span><span class=o>)</span> <span class=n>reader</span><span class=o>.</span><span class=na>close</span><span class=o>();</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Checked and Unchecked Exceptions
+exceptions can be compiler checked and unchecked
+examples</p><ul><li>NullPointerException is not checked</li><li>IOException is checked</li></ul><p>unchecked - due to programming errors, compilers not gonna do anything about it
+checked - foreseeable problems the compiler finds</p><p>two approaches to dealing with checked exceptions</p><ul><li>propagate - declare the exception in the method header</li><li>handle - catch the exception with the catch, finally, code from before
+hot potato</li></ul><p>propagating - declaring checked exceptions</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kd>public</span> <span class=kt>void</span> <span class=nf>read</span><span class=o>(</span><span class=n>String</span> <span class=n>filename</span><span class=o>)</span> <span class=kd>throws</span> <span class=n>FileNotFoundException</span>
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>FileReader</span> <span class=n>reader</span> <span class=o>=</span> <span class=k>new</span> <span class=n>FileReader</span><span class=o>(</span><span class=n>filename</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	<span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>i dont get why you would propagate like this, i guess if the error doesnt matter?</p><p>summary</p><ul><li>control flow - sequence, loops, conditional execution</li><li>method calls - getting data in and out of methods</li><li>normal operation vs exception handling</li></ul><a href=#4c-structure-of-java-programs><h2 id=4c-structure-of-java-programs><span class=hanchor arialabel=Anchor># </span>4c. Structure of Java Programs</h2></a><p>note: this video does not cover modules, will need to check another tut for that, some linked in blackboard page for 1.4c</p><p>How do we structure large programs?</p><ul><li>at a conceptual/design level -> will talk about more later<ul><li>object oriented design, class design</li><li>software design patterns and software architecture</li></ul></li><li>at a language level, Java offers<ul><li>Packages reside in directories, get packed into libraries (jar files)</li><li>Classes reside in files</li><li>Methods reside in Classes</li></ul></li></ul><a href=#methods-1><h5 id=methods-1><span class=hanchor arialabel=Anchor># </span>methods</h5></a><ul><li>functions</li><li>talked about alrdy</li><li>a method with different number of parameters (and different types) counts as different from another method, even with same name</li><li>methods reside inside a class</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=c1>//create method inside class MyClass
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>int</span> <span class=nf>mymethod</span><span class=o>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>i</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//instantiate an object of class MyClass
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>MyClass</span> <span class=n>c</span> <span class=o>=</span> <span class=k>new</span> <span class=n>MyClass</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//call method mymethod or object c
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>c</span><span class=o>.</span><span class=na>mymethod</span><span class=o>();</span>
+</span></span></code></pre></td></tr></table></div></div><p>special case: call a static method in a class</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kd>static</span> <span class=kt>int</span> <span class=nf>mymethod</span><span class=o>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>i</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//call directly using class name
+</span></span></span><span class=line><span class=cl><span class=c1>//this method can only take advantage of static variables,
+</span></span></span><span class=line><span class=cl><span class=c1>//not instance variables
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>MyClass</span><span class=o>.</span><span class=na>mymethod</span><span class=o>();</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#classes-and-objects><h5 id=classes-and-objects><span class=hanchor arialabel=Anchor># </span>classes and objects</h5></a><p>class name and file name needs to match</p><ul><li>1 class 1 file (usually)</li><li>special case: inner class within another class</li><li>special case: anonymous classes, we&rsquo;ll see that later</li></ul><p>class integrates data and algorithms</p><ul><li>several class variables of various kinds</li><li>several methods</li></ul><p>encapsulation / data hiding / information hiding</p><ul><li>methods are publicly available (public) or secret (private)<ul><li>reduces complexity when interfacing with a class</li></ul></li><li>hiding information like this also called &ldquo;encapsulation&rdquo;</li><li>data / class variables are typically private and hidden</li><li>methods mainly operate on class internal data</li></ul><p>what is good class design?</p><ul><li>key question for later</li></ul><p>common use case for classes: class is instantiated into object</p><ul><li>each instance has own set of instance variables</li><li>code for methods is shared</li></ul><p>special use case for classes: static code
+static methods</p><ul><li>no instantiation necessary to call a method</li><li>example: <code>public static void main(String[] args)</code></li><li>typically used for stateless functions, ex. <code>sqrt()</code> in Math
+static variables</li><li>no instantiation necessary to access variables</li><li>much like shared variables, either globally or among instances of a class</li><li>static variables are prime suspects for memory leaks!<ul><li>garbage collection cant recognize if static variable that refers to an object is ever going to be needed again, never recycles memory that a static variable refers to</li><li>if you dont release the memory, it wont be released by garbage collection</li></ul></li></ul><a href=#packages><h5 id=packages><span class=hanchor arialabel=Anchor># </span>packages</h5></a><p>classes are grouped into packages</p><ul><li>package names are dot-separated identifier sequences<ul><li>java.util</li><li>javax.swing</li><li>com.sun.misc</li><li>edu.wm.cs.cs301.slidingpuzzle</li><li>as seen in these examples, naming goes from most general to -> special</li></ul></li><li>add package statement to top of file<ul><li><code>package edu.wm.cs.cs301.slidingpuzzle;</code></li></ul></li><li>class without package name is in default package<ul><li>sloppy</li><li>not cool</li></ul></li></ul><p>full name of class = package name + class name
+important for compiler that this full name is unique</p><p>package name must match subdirectory name</p><ul><li>edu.wm.cs.cs301.slidingpuzzle.FastPuzzleSolver.java</li><li>must be in subdirectory:<ul><li>basedirectory/edu/wm/cs/cs301/slidingpuzzle</li></ul></li></ul><p>always compile from the base directory</p><ul><li><code>javac edu/wm/cs/cs301/slidingpuzzle/FastPuzzleSolver.java</code>
+always run from the base directory</li><li><code>java edu/wm/cs/cs301/slidingpuzzle/FastPuzzleSolver</code></li></ul><p>Importing Packages
+tedious to write or read full class names in code
+<code>import</code> allows you to use short class name</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kn>import</span> <span class=nn>java.util.ArrayList</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=n>ArrayList</span> <span class=n>a</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=c1>//dont have to write out java.util.ArrayList a;
+</span></span></span></code></pre></td></tr></table></div></div><p>can import all classes from a package</p><ul><li><code>import java.util.*;</code>
+cannot import from multiple packages</li><li><code>import java.*.*;</code> &lt;- no</li></ul><p>if a class occurs in two imported packages, import is no help</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kn>import</span> <span class=nn>java.util.*</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>java.sql.*</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=n>java</span><span class=o>.</span><span class=na>util</span><span class=o>.</span><span class=na>Date</span> <span class=n>d</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=c1>//Date also occurs in java.sql, so have to specify full name
+</span></span></span></code></pre></td></tr></table></div></div><p>note: never need to import java.lang bc used commonly
+imported by default</p><a href=#libraries><h5 id=libraries><span class=hanchor arialabel=Anchor># </span>libraries</h5></a><p>packages can be packed into libraries for use/reuse
+libraries are archive files (suffix .jar)
+not a java language mechanism</p><a href=#summary><h5 id=summary><span class=hanchor arialabel=Anchor># </span>summary</h5></a><ul><li>basic tools for structuring code</li><li>methods - block of code</li><li>classes - files</li><li>packages - directories</li><li>libraries - archives</li></ul><a href=#4d-primitive-types-in-java><h2 id=4d-primitive-types-in-java><span class=hanchor arialabel=Anchor># </span>4d. Primitive Types in Java</h2></a><p>im getting tired of this its been 1h44min</p><p>eight primitive types</p><ul><li>byte</li><li>short</li><li>int</li><li>long</li><li>float</li><li>double
+finite range - be careful of underflow, overflow
+floating point - not real values, finite subset - be careful of floating point round errors</li></ul><p>conversion via typecast</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kt>float</span> <span class=n>pif</span> <span class=o>=</span> <span class=n>3</span><span class=o>.</span><span class=na>14F</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=kt>double</span> <span class=n>pi</span> <span class=o>=</span> <span class=n>3</span><span class=o>.</span><span class=na>14159265</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>x</span> <span class=o>=</span> <span class=o>(</span><span class=kt>int</span><span class=o>)</span><span class=n>pi</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=c1>//x = 3
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=n>pif</span> <span class=o>=</span> <span class=n>pi</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=c1>//pif = 3.14.15927
+</span></span></span><span class=line><span class=cl><span class=c1>//pif loses one decimal place of precision at the end
+</span></span></span></code></pre></td></tr></table></div></div><p>operations for floating point and integral types
+comparison &lt; &lt;= >= > and equality == !=
+unary sign + -
+math operations + - * / %</p><p>for integral types, also
+increment/decrement, ++ &ndash;</p><p>common in for loops
+bitwise complement ~ and bitwise operations &, |, XOR: ^</p><p>for floating point type, also
+special classes Math and StrictMath for common numerical methods
+y = Math.sqrt(x);
+y = Math.round(x);
+static methods</p><p>7th type: boolean
+true or false</p><p>operators
+relational == !=
+conditional && ||
+complement !
+conditional ? :</p><ul><li><code>int y = (x > 3) ? 4 : 5</code></li><li>if x > 3, then y = 4, else y = 5</li></ul><p>8th type: char for Character
+2 bytes
+technically integral type
+range 0 to 65635
+type cast to short, int possible
+unicode encoding</p><ul><li>essentially a 1-1 mapping between numbers and letters
+special cases: escape sequences</li><li>\n used for newline</li><li>\b used for backspace</li><li>\r used for return</li><li>\t used for tab</li><li>\\ for backslash</li><li>\&rsquo; and \"</li></ul><a href=#build-data-structures-from-primitive-types><h5 id=build-data-structures-from-primitive-types><span class=hanchor arialabel=Anchor># </span>build data structures from primitive types</h5></a><p>Array</p><ul><li>container for values of same type</li><li>Subclass of java.lang.Object</li><li>length of array is finite and fixed</li><li>index range 0 to n-1</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Java data-lang=Java><span class=line><span class=cl><span class=kt>int</span><span class=o>[]</span><span class=n>a</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[</span><span class=n>10</span><span class=o>];</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>a</span><span class=o>.</span><span class=na>length</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span><span class=o>[]</span> <span class=n>b</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[</span><span class=n>n</span><span class=o>];</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>(</span><span class=n>a</span> <span class=o>==</span> <span class=n>b</span><span class=o>)</span> <span class=o>{...}</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>(</span><span class=n>a</span><span class=o>.</span><span class=na>equals</span><span class=o>(</span><span class=n>b</span><span class=o>))</span> <span class=o>{...}</span>
+</span></span><span class=line><span class=cl><span class=c1>//^both check if points to same array in memory
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>if</span><span class=o>(</span><span class=n>Arrays</span><span class=o>.</span><span class=na>equals</span><span class=o>(</span><span class=n>a</span><span class=o>,</span><span class=n>b</span><span class=o>))</span> <span class=o>{...}</span>
+</span></span><span class=line><span class=cl><span class=c1>//^checks if contents is equal, this is what we usually want
+</span></span></span></code></pre></td></tr></table></div></div><p>with Arrays.equals(), ok for primitive types, careful if array of objects</p><a href=#objects><h5 id=objects><span class=hanchor arialabel=Anchor># </span>objects</h5></a><p>object as an instance of a class</p><ul><li>has an identity, has a state, has behavior</li><li>created/instantiated with <code>new</code></li><li>deleted/removed by garbage collection</li></ul><p><code>Object o = new Object();</code></p><p>identity</p><ul><li>results from location in memory
+state</li><li>fields (instance variables) defined in class</li><li>possible: primitive types, arrays, references to objects</li><li>typically initialized in constructor method
+behavior</li><li>defined by set of methods</li></ul><p>yup its all coming back to me getting robotics flashbacks</p><a href=#strings><h5 id=strings><span class=hanchor arialabel=Anchor># </span>strings</h5></a><p>array or object?</p><ul><li>java.lang.String is a subclass of Object
+contains sequence of characters
+indexation starts at 0
+"" is the empty string of length 0, different from null</li></ul><p>methods</p><ul><li>length()</li><li>charAt()</li><li>substring()<ul><li>&ldquo;Hello&rdquo;.substring(1,3) is &ldquo;el&rdquo;</li></ul></li><li>equals()<ul><li>== only compares if references are identical</li><li>dont use ==</li></ul></li></ul><p>concatenation</p><ul><li>combine strings with +</li></ul><p>strings are immutable</p><ul><li>cant change content</li><li>implies generation of many (temporary) strings</li><li>workaround: StringBuffer class<ul><li>but error prone</li><li>also idk what this is and idc</li></ul></li></ul><p>caveats</p><ul><li>misunderstanding of reference and object</li></ul><p>operations
+extracting content</p><ul><li>StringTokenizer<ul><li>countTokens()</li><li>hasMoreTokens()</li><li>nextToken()
+parsing strings into primitive types</li></ul></li><li>use static parse method<ul><li>Integer.parseInt()</li><li>Double.parseDouble</li><li>throws a number format exception if string does not contain a number
+other useful classes for strings</li></ul></li><li>java.util.Scanner</li><li>java.lang.StringBuffer</li></ul><p>summary</p><ul><li>primitive types as basic building blocks<ul><li>integral float boolean</li></ul></li><li>type cast between types</li><li>common numerical operations</li><li>building data structures in 2 ways<ul><li>container for values of same type: Arrays</li><li>container for values of various types: Objects</li><li>note: arrays are objects in Java</li></ul></li></ul><p>OK IM DONE I GUESS THAT WAS USEFUL I WISH WE HAD CLASS BECAUSE I SPENT 2:21:19 WRITING THIS AND DID NOT NEED TO!</p></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=https://carlomehegan.github.io/quartz-vault/js/graph.abd4bc2af3869a96524d7d23b76152c7.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2022</p><ul><li><a href=https://carlomehegan.github.io/quartz-vault/>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>Github</a></li></ul></footer></div></div></body></html>
