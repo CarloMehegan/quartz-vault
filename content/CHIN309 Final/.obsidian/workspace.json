@@ -10,9 +10,35 @@
           {
             "id": "403db0c93da45912",
             "type": "leaf",
+            "pinned": true,
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "_index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "pinned": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "c29f0038318622b0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bde0b6d7f54e1a4b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Records of the Grand Historian.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -83,6 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "_index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -174,17 +201,17 @@
     "width": 323.5,
     "collapsed": true
   },
-  "active": "21d677f56490e495",
+  "active": "403db0c93da45912",
   "lastOpenFiles": [
+    "Records of the Grand Historian.md",
+    "_index.md",
+    "Water Margin.md",
+    "Legend of the Condor Heroes.md",
+    "Stormlight Archives.md",
+    "Cradle.md",
     "Daily/2022-12-05 Monday.md",
     "Daily/2022-12-04 Sunday.md",
     "Daily/2022-12-06 Tuesday.md",
-    "Daily/2022-12-03 Saturday.md",
-    "Daily/2022-10-12 Wednesday.md",
-    "Topic Notes/Elementary Row Operations.md",
-    "Topic Notes/Matrix.md",
-    "Topic Notes/Linear System.md",
-    "Topic Notes/Linear Equation.md",
-    "Topic Notes/📟MATH211 Hub.md"
+    "Daily/2022-12-03 Saturday.md"
   ]
 }

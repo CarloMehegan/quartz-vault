@@ -37,5 +37,7 @@
   "attachmentFolderPath": "Assets",
   "newFileLocation": "current",
   "showInlineTitle": false,
-  "vimMode": false
+  "vimMode": false,
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute"
 }
