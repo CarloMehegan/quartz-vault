@@ -1,0 +1,190 @@
+{
+  "main": {
+    "id": "750e539b12f4d928",
+    "type": "split",
+    "children": [
+      {
+        "id": "37661a9a83c2becd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "403db0c93da45912",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "80b2196f3dafa5d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "669bc22aab08d21a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21d677f56490e495",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabeticalReverse"
+              }
+            }
+          },
+          {
+            "id": "aca512e4dfba217d",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "a8c3bbdcb34b974b",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "87d0637206a76fd7",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 221.50499725341797
+  },
+  "right": {
+    "id": "f67834a898ceba2a",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2facd9a78175032",
+        "type": "tabs",
+        "dimension": 63.12195121951219,
+        "children": [
+          {
+            "id": "da51d12285ccdf33",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": true,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "4a3a37ab955f412c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "868a2333d80c53b2",
+            "type": "leaf",
+            "state": {
+              "type": "stats-tracker",
+              "state": {}
+            }
+          },
+          {
+            "id": "bfa4ef8b95a4a310",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "71afd4c9cc07a45d",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "b9c840f2c3e3832c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "japn mother",
+                "matchingCase": false,
+                "explainSearch": true,
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "byModifiedTime"
+              }
+            }
+          },
+          {
+            "id": "6f6645730c31ce1c",
+            "type": "leaf",
+            "state": {
+              "type": "online.larslockefeer.obsidian-plugin-todo",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 5
+      },
+      {
+        "id": "b0fa382d11c1b664",
+        "type": "tabs",
+        "dimension": 36.8780487804878,
+        "children": [
+          {
+            "id": "83cc9afb49a0436d",
+            "type": "leaf",
+            "state": {
+              "type": "toggl-report",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 323.5,
+    "collapsed": true
+  },
+  "active": "21d677f56490e495",
+  "lastOpenFiles": [
+    "Daily/2022-12-05 Monday.md",
+    "Daily/2022-12-04 Sunday.md",
+    "Daily/2022-12-06 Tuesday.md",
+    "Daily/2022-12-03 Saturday.md",
+    "Daily/2022-10-12 Wednesday.md",
+    "Topic Notes/Elementary Row Operations.md",
+    "Topic Notes/Matrix.md",
+    "Topic Notes/Linear System.md",
+    "Topic Notes/Linear Equation.md",
+    "Topic Notes/📟MATH211 Hub.md"
+  ]
+}
