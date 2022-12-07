@@ -1,0 +1,26 @@
+{
+  "dayCounts": {
+    "2022/1/13": 226,
+    "2022/1/14": 1051,
+    "2022/1/15": 2316,
+    "2022/1/16": 1299,
+    "2022/1/17": 164,
+    "2022/1/18": 839,
+    "2022/1/19": 142,
+    "2022/1/20": 13
+  },
+  "todaysWordCount": {
+    "Notes/Integration by Parts.md": {
+      "initial": 1048,
+      "current": 1031
+    },
+    "Notes/Average Value of a Function.md": {
+      "initial": 348,
+      "current": 348
+    },
+    "Daily/2022-02-20 Sunday.md": {
+      "initial": 175,
+      "current": 188
+    }
+  }
+}
