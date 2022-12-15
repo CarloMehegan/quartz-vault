@@ -1,7 +1,12 @@
 Links to places
 
-[[Cradle]]
-[[Stormlight Archives]]
-[[Legend of the Condor Heroes]]
-[[Water Margin]]
-[[Records of the Grand Historian]]
+[Cradle](Cradle.md)
+
+[Stormlight Archives](Stormlight%20Archives.md)
+[Water Margin](Water%20Margin.md)
+
+
+Timeline
+
+
+1957 [Legends of the Condor Heroes](Legends%20of%20the%20Condor%20Heroes.md)

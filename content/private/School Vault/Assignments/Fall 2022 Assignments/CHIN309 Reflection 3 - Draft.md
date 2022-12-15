@@ -53,7 +53,7 @@ In the project I could explore the meaning of literature and argue the importanc
 	- amazon
 
 Tao Wong's Thousand Li
-Jim Yong's [[Legend of the Condor Heroes]]
+Jim Yong's [[Legends of the Condor Heroes]]
 - wuxia
 - "New School" of wuxia ?
 - 1957
