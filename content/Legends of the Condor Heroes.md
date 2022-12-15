@@ -2,9 +2,10 @@
 author: Jin Yong
 circa: 1957
 genre: wuxia
+title: "Legends of the Condor Heroes"
 ---
 
-## Legends of The Condor Heroes
+## Legends of the Condor Heroes
 ##### Synopsis
 [Legends of the Condor Heroes](Legends%20of%20the%20Condor%20Heroes.md) is a wuxia novel written by Jin Yong, pen name for the late Louis Cha. The novel follows the adventures of two young men, Guo Jing and Yang Kang, who become sworn brothers and embark on a series of dangerous quests. The novel is set in the Song Dynasty, and the story revolves around the conflict between the Song Empire and the invading Jurchen Jin Dynasty.
 
