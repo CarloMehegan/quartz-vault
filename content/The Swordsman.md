@@ -16,7 +16,7 @@ Translation by [James Liu](http://www.jstor.org/stable/23881289)
 4  Of you, to whom was justice denied?**
 
 Another translation by [Traditionshome](https://100tangpoems.wordpress.com/2022/02/16/ten-years-to-forge-a-swooooord/)  
-**1 Ten years to sharpen a sword. 
+**1 Ten years to sharpen a sword.   
 2 Its sharp bright edge never tried.  
 3 Today I show it to you,  
 4 For whom justice was denied.**
@@ -25,3 +25,4 @@ Another translation by [Traditionshome](https://100tangpoems.wordpress.com/2022/
 This short poem reflects the [Youxia](Youxia.md) ideas of a wandering hero looking to serve justice. To me, the poem describes a warrior about to set out on a quest. President Xi Jinping [quoted this poem](http://en.people.cn/n3/2022/0212/c90000-9956834.html) at the Beijing 2022 Winter Olympics, further showing the poem's prevalence and its themes of contest and cultivation.
 
 ![](Assets/Swordsman%20Quote.png)
+*A graphic from People's Daily Online about Xi Jinping quoting the poem.*
