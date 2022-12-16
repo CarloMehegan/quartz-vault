@@ -15,7 +15,7 @@ Translation by [James Liu](http://www.jstor.org/stable/23881289)
 3  Today, I hold it unsheathed before you  
 4  Of you, to whom was justice denied?**
 
-Another translation by [Traditionshome](https://100tangpoems.wordpress.com/2022/02/16/ten-years-to-forge-a-swooooord/)  
+Another translation from [Traditionshome](https://100tangpoems.wordpress.com/2022/02/16/ten-years-to-forge-a-swooooord/)  
 **1 Ten years to sharpen a sword.   
 2 Its sharp bright edge never tried.  
 3 Today I show it to you,  
