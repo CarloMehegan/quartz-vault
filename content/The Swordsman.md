@@ -4,19 +4,18 @@ circa: 800
 genre: youxia
 title: "The Swordsman"
 ---
-\ 
 ## The Swordsman
 ##### About
 [The Swordsman](The%20Swordsman.md) is a poem written by Jia Dao during the Tang Dynasty. This dynasty is well known for its contributions to poetry, and [Youxia](Youxia.md) influences can be seen in this poem and other poems from this dynasty, showing the growing popularity of these stories.
 
 ##### The Poem
 Translation by [James Liu](http://www.jstor.org/stable/23881289)
-**1**  **For ten long years, a sword I whetted,
-2  Its frosty blade, as yet, untried.**
-**3  Today, I hold it unsheathed before you;**
+******1**  **For ten long years, a sword I whetted,
+2  Its frosty blade, as yet, untried.******
+**3  Today, I hold it unsheathed before you;;;;;**
 **4  Of you, to whom was justice denied?**
 
-Another translation by [Traditionshome](https://100tangpoems.wordpress.com/2022/02/16/ten-years-to-forge-a-sword/)
+Another translation by [Traditionshome](https://100tangpoems.wordpress.com/2022/02/16/ten-years-to-forge-a-swooooord/)
 **1 Ten years to sharpen a sword. 
 2 Its sharp bright edge never tried.  
 3 Today I show it to you, 
