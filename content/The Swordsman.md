@@ -24,5 +24,7 @@ Another translation by [Traditionshome](https://100tangpoems.wordpress.com/2022/
 ##### Notes
 This short poem reflects the [Youxia](Youxia.md) ideas of a wandering hero looking to serve justice. To me, the poem describes a warrior about to set out on a quest. President Xi Jinping [quoted this poem](http://en.people.cn/n3/2022/0212/c90000-9956834.html) at the Beijing 2022 Winter Olympics, further showing the poem's prevalence and its themes of contest and cultivation.
 
-![](Assets/Pasted%20image%2020221215193302.png)
+
+<img src="Assets/Pasted%20image%2020221215193302.png" alt="drawing" width="200"/>
+
 
