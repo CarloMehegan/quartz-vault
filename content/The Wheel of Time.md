@@ -18,4 +18,4 @@ The novel was published for the first time in English across 4 volumes starting 
 The republication of this work in English shows the increased interest in Chinese fantasy among Western audiences, not only for new works, but older ones too. I find this work similar to [The Wheel of Time](The%20Wheel%20of%20Time.md) as a precursor to fantasy works written today.
 
 
-![](Pasted%20image%2020221215144424.png)
+![](Assets/A%20Hero%20Born%20Cover.png)
