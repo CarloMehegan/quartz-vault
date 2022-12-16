@@ -1,7 +1,7 @@
 ---
 title: "Genres"
 ---
-This page explains the genres used to categorize the works discussed in this project, and also acts as a way to view the project in a different form. [Go back to the main page here.](_index.md)  
+This page explains the genres used to categorize the works discussed in this project, and also acts as a way to view the project in prose, separate from the timeline on the main page.
 
 ## Genres
 This project focuses on specific subgenres of fantasy and how they evolve over time. These genres are referred to in the project as "hero fantasy" genres because of the suffix "-xia," meaning "hero," that follows some of them.
