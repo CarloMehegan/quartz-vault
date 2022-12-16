@@ -1,5 +1,5 @@
 ---
-author: Jia Dao
+author: Shi Nai'an
 circa: 1400
 genre: wuxia
 title: "Water Margin"
